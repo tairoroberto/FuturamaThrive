@@ -10,9 +10,12 @@ class CharactersView extends StatefulWidget {
 class _CharactersViewState extends State<CharactersView> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: Text("Characters"),
+        appBar: AppBar(
+          title: const Text("Characters"),
+        ),
+        body: const Text("Characters"),
       ),
     );
   }
