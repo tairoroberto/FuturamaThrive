@@ -50,11 +50,53 @@ android {
         versionName flutterVersionName
     }
 
-    buildTypes {
+    def keystoreProperties = new Properties()
+    def keystorePropertiesFile = file('../key.properties')
+    def env = System.getenv()
+
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    } else {
+
+        // Load keystore properties from environment or set their default values
+        if (env['FTHRIVE_KEYSTORE_STORE']) keystoreProperties.put('FTHRIVE_KEYSTORE_STORE', env['FTHRIVE_KEYSTORE_STORE'])
+        else keystoreProperties.put('FTHRIVE_KEYSTORE_STORE', "debug.keystore")
+
+        if (env['FTHRIVE_KEYSTORE_ALIAS']) keystoreProperties.put('FTHRIVE_KEYSTORE_ALIAS', env['FTHRIVE_KEYSTORE_ALIAS'])
+        else keystoreProperties.put('FTHRIVE_KEYSTORE_ALIAS', "androiddebugkey")
+
+        if (env['FTHRIVE_KEYSTORE_KEY_PASS']) keystoreProperties.put('FTHRIVE_KEYSTORE_KEY_PASS', env['FTHRIVE_KEYSTORE_KEY_PASS'])
+        else keystoreProperties.put('FTHRIVE_KEYSTORE_KEY_PASS', "android")
+
+        if (env['FTHRIVE_KEYSTORE_ALIAS_PASS']) keystoreProperties.put('FTHRIVE_KEYSTORE_ALIAS_PASS', env['FTHRIVE_KEYSTORE_ALIAS_PASS'])
+        else keystoreProperties.put('FTHRIVE_KEYSTORE_ALIAS_PASS', "android")
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+            keyAlias "androiddebugkey"
+            storePassword "android"
+            keyPassword "android"
+        }
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            storeFile file(keystoreProperties["FTHRIVE_KEYSTORE_STORE"])
+            keyAlias keystoreProperties["FTHRIVE_KEYSTORE_ALIAS"]
+            storePassword keystoreProperties["FTHRIVE_KEYSTORE_KEY_PASS"]
+            keyPassword keystoreProperties["FTHRIVE_KEYSTORE_ALIAS_PASS"]
+        }
+    }
+
+    buildTypes {
+        debug {
             signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
