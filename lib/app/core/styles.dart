@@ -19,7 +19,7 @@ MaterialColor primaryMaterialColor = const MaterialColor(
 Color colorPrimary = const Color(0xFF5CC1CA);
 Color colorPrimaryDark = const Color(0xFF5CC1CA);
 Color colorAccent = const Color(0xFF5CC1CA);
-Color tabAppBarColor = const Color(0x1AFFFFFF);
+Color tabAppBarColor = const Color(0xFFFFFFFF);
 Color tabBarIconColor = const Color(0xFFFFFFFF);
 Color tabBarTextColor = const Color(0xFFFFFFFF);
 
