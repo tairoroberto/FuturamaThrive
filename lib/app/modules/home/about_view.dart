@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:futurama_thrive/app/core/extensions/app_extension.dart';
 import 'package:futurama_thrive/app/core/services/service_locator.dart';
 import 'package:futurama_thrive/app/core/styles.dart';
+import 'package:futurama_thrive/app/core/widgets/default_loading.dart';
 import 'package:futurama_thrive/app/modules/home/home_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -61,11 +62,7 @@ class _AboutViewState extends State<AboutView> {
               CachedNetworkImage(
                   imageUrl:
                       'https://disneyplusbrasil.com.br/wp-content/uploads/2022/02/Futurama-Star-Plus-750x422.jpg',
-                  placeholder: (context, url) => Center(
-                          child: Padding(
-                        padding: EdgeInsets.all(8.dp),
-                        child: const CircularProgressIndicator(),
-                      ))),
+                  placeholder: (context, url) => const DefaultLoading()),
               Text(
                 "${controller.response.items?[0].synopsis}",
                 style: bodyTextStyle,

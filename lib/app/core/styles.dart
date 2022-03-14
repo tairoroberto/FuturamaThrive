@@ -35,6 +35,14 @@ TextStyle titleStyle = TextStyle(
   height: 1.2,
 );
 
+TextStyle subTitleStyle = TextStyle(
+  fontFamily: 'Roboto-Medium',
+  fontSize: 20.sp,
+  color: colorTextPrimary,
+  fontWeight: FontWeight.w700,
+  height: 1.2,
+);
+
 TextStyle textRegularMedium = TextStyle(
   fontFamily: 'Roboto-Medium',
   fontSize: 16.sp,
