@@ -6,7 +6,7 @@ class CharactersRepository {
 
   CharactersRepository(this.api);
 
-  Future<CharactersResponse> getInfos() async {
+  Future<CharactersResponse> getCharacters() async {
     return api.getCharacters();
   }
 }

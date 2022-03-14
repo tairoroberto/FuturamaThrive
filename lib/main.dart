@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:futurama_thrive/app/core/services/service_locator.dart';
 import 'package:futurama_thrive/app/core/styles.dart';
+import 'package:futurama_thrive/app/modules/characters/characters_controller.dart';
 import 'package:futurama_thrive/app/modules/characters/characters_view.dart';
 import 'package:futurama_thrive/app/modules/home/home_controller.dart';
 import 'package:futurama_thrive/app/modules/home/home_view.dart';
+import 'package:futurama_thrive/app/modules/quiz/quiz_controller.dart';
 import 'package:futurama_thrive/app/modules/quiz/quiz_view.dart';
 import 'package:futurama_thrive/app/routes.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +27,9 @@ class FuturamaThriveApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ListenableProvider(create: (_) => serviceLocator<HomeController>()),
-        /*ListenableProvider(create: (_) => CharactersController()),
-        ListenableProvider(create: (_) => QuizController()),*/
+        ListenableProvider(
+            create: (_) => serviceLocator<CharactersController>()),
+        ListenableProvider(create: (_) => serviceLocator<QuizController>()),
       ],
       child: MaterialApp(
         title: 'Futurama Thrive Challenge',
