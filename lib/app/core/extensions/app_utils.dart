@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:sizer/sizer.dart';
 
 extension AppSizerExt on num {
@@ -13,4 +14,15 @@ extension WidgetExtension on BuildContext {
       callback();
     });
   }
+}
+
+Future<T?> navigateTo<T>(BuildContext context, Widget page,
+    {String? routeName}) {
+  return pushNewScreenWithRouteSettings<T>(
+    context,
+    settings: RouteSettings(name: routeName),
+    screen: page,
+    withNavBar: true,
+    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+  );
 }

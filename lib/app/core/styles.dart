@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:futurama_thrive/app/core/extensions/app_extension.dart';
+import 'package:futurama_thrive/app/core/extensions/app_utils.dart';
 
 MaterialColor primaryMaterialColor = const MaterialColor(
   0xFF5CC1CA,

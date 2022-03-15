@@ -6,7 +6,7 @@ class QuizRepository {
 
   QuizRepository(this.api);
 
-  Future<QuestionsResponse> getInfos() async {
+  Future<QuestionsResponse> getQuestions() async {
     return api.getQuestions();
   }
 }
