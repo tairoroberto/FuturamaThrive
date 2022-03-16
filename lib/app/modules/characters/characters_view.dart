@@ -43,11 +43,8 @@ class _CharactersViewState extends State<CharactersView> {
 
     if (controller.error != null) {
       context.onWidgetDidBuild(() {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${controller.error}'),
-          action: SnackBarAction(
-              label: "Try Again", onPressed: () => controller.getCharacters()),
-        ));
+        showError(
+            context, '${controller.error}', () => controller.getCharacters());
         controller.error = null;
       });
     }

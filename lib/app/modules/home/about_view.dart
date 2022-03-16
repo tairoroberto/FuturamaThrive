@@ -43,11 +43,7 @@ class _AboutViewState extends State<AboutView> {
 
     if (controller.error != null) {
       context.onWidgetDidBuild(() {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${controller.error}'),
-          action: SnackBarAction(
-              label: "Try Again", onPressed: () => controller.getInfos()),
-        ));
+        showError(context, '${controller.error}', () => controller.getInfos());
         controller.error = null;
       });
     }
