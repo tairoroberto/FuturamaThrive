@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:futurama_thrive/app/core/model/characters_response.dart';
 import 'package:futurama_thrive/app/core/model/info_response.dart';
+import 'package:futurama_thrive/app/core/model/questions_response.dart';
 import 'package:sizer/sizer.dart';
 
 extension SizerMainTest on MaterialApp {
@@ -141,5 +142,38 @@ CharactersResponse mockCharactersResponse() => CharactersResponse.fromJson([
           "You did the best you could, I guess, and some of these gorillas are okay."
         ],
         "id": 2
+      }
+    ]);
+
+QuestionsResponse mockQuestionsResponse() => QuestionsResponse.fromJson([
+      {
+        "id": 1,
+        "question": "What is Fry's first name?",
+        "possibleAnswers": ["Fred", "Philip", "Will", "John"],
+        "correctAnswer": "Philip"
+      },
+      {
+        "id": 2,
+        "question": "In 'Benders Big Score' what ailen species scam the earth?",
+        "possibleAnswers": [
+          "Nibbloniens",
+          "Omicrons",
+          "Robots",
+          "Nudest aliens",
+          "Tentacals"
+        ],
+        "correctAnswer": "Nudest aliens"
+      },
+      {
+        "id": 3,
+        "question": "What is benders middle and last name?",
+        "possibleAnswers": [
+          "E Smithie",
+          "Flam Flexo",
+          "Lobster Squid",
+          "Bending Rodriguez",
+          "Steven martin"
+        ],
+        "correctAnswer": "Bending Rodriguez"
       }
     ]);

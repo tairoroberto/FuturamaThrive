@@ -23,6 +23,10 @@ Future<void> main() async {
         .thenAnswer((_) async => mockCharactersResponse());
   });
 
+  tearDown(() {
+    serviceLocator.reset();
+  });
+
   Widget createScreen() => MultiProvider(
         providers: [
           ListenableProvider(

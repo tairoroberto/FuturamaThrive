@@ -28,6 +28,10 @@ Future<void> main() async {
     when(() => _client.getInfos()).thenAnswer((_) async => mockInfoResponse());
   });
 
+  tearDown(() {
+    serviceLocator.reset();
+  });
+
   Widget createScreen() => MultiProvider(
         providers: [
           ListenableProvider(create: (_) => serviceLocator<HomeController>()),

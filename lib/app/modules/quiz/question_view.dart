@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:futurama_thrive/app/core/extensions/app_utils.dart';
 import 'package:futurama_thrive/app/core/model/questions_response.dart';
-import 'package:futurama_thrive/app/core/styles.dart';
+import 'package:futurama_thrive/app/core/theme/styles.dart';
 
 class QuestionView extends StatelessWidget {
   final Question? question;

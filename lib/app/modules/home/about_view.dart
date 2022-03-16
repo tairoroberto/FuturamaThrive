@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:futurama_thrive/app/core/extensions/app_utils.dart';
 import 'package:futurama_thrive/app/core/services/service_locator.dart';
-import 'package:futurama_thrive/app/core/styles.dart';
+import 'package:futurama_thrive/app/core/theme/styles.dart';
 import 'package:futurama_thrive/app/core/widgets/default_loading.dart';
 import 'package:futurama_thrive/app/modules/home/home_controller.dart';
 import 'package:provider/provider.dart';
