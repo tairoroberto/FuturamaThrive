@@ -56,9 +56,15 @@ class _AboutViewState extends State<AboutView> {
           child: Column(
             children: [
               CachedNetworkImage(
-                  imageUrl:
-                      'https://disneyplusbrasil.com.br/wp-content/uploads/2022/02/Futurama-Star-Plus-750x422.jpg',
-                  placeholder: (context, url) => const DefaultLoading()),
+                imageUrl:
+                    'https://disneyplusbrasil.com.br/wp-content/uploads/2022/02/Futurama-Star-Plus-750x422.jpg',
+                placeholder: (context, url) => const DefaultLoading(),
+                errorWidget: (context, url, error) => Image(
+                  image: const AssetImage('assets/images/thrive-ladder.png'),
+                  height: 250.dp,
+                  fit: BoxFit.contain,
+                ),
+              ),
               Text(
                 "${controller.response.items?[0].synopsis}",
                 style: bodyTextStyle,
