@@ -13,7 +13,7 @@ class CharacterDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${character?.name?.first} ${character?.name?.last}'),
+        title: Text('${character?.name?.first}'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -28,14 +28,45 @@ class CharacterDetailView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '${character?.species}',
+                  '${character?.name?.first} ${character?.name?.last}',
                   style: subTitleStyle.copyWith(color: Colors.white),
                 ),
               ),
-            )
+            ),
+            _buildItem('Home planet', '${character?.homePlanet}'),
+            _buildItem('Gender', '${character?.gender}'),
+            _buildItem('Species', '${character?.species}'),
+            _buildItem('Occupation', '${character?.occupation}'),
+            const Text('Sayings: '),
+            _buildSayings()
           ],
         ),
       ),
+    );
+  }
+
+  Column _buildSayings() {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: character?.sayings
+              ?.map((e) => Padding(
+                    padding:
+                        EdgeInsets.only(left: 16.dp, right: 16.dp, top: 8.dp),
+                    child: Card(
+                        child: Padding(
+                      padding: EdgeInsets.all(8.dp),
+                      child: SizedBox(width: double.maxFinite, child: Text(e)),
+                    )),
+                  ))
+              .toList() ??
+          [],
+    );
+  }
+
+  Widget _buildItem(String description, String value) {
+    return ListTile(
+      title: Text(description),
+      subtitle: Text(value),
     );
   }
 }
