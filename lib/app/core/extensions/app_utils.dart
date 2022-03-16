@@ -26,3 +26,12 @@ Future<T?> navigateTo<T>(BuildContext context, Widget page,
     pageTransitionAnimation: PageTransitionAnimation.cupertino,
   );
 }
+
+void showError(BuildContext context, String message, Function onPressed) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      action: SnackBarAction(label: "Try Again", onPressed: () => onPressed),
+    ),
+  );
+}

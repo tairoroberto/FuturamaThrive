@@ -29,11 +29,11 @@ class QuizController extends ChangeNotifier {
   Future<void> getQuestions() async {
     _loading = true;
     _repository.getQuestions().then((response) async {
-      _response = response;
       index = 0;
       correctAnswer = 0;
       wrongAnswer = 0;
       _question = response.items?[index];
+      _response = response;
       index++;
     }).catchError((error) {
       if (error is DioError) {

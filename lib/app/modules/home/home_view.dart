@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:futurama_thrive/app/core/extensions/app_utils.dart';
 import 'package:futurama_thrive/app/core/services/service_locator.dart';
-import 'package:futurama_thrive/app/core/styles.dart';
+import 'package:futurama_thrive/app/core/theme/styles.dart';
 import 'package:futurama_thrive/app/modules/characters/characters_view.dart';
 import 'package:futurama_thrive/app/modules/home/about_view.dart';
 import 'package:futurama_thrive/app/modules/home/home_controller.dart';
