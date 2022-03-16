@@ -2,15 +2,24 @@
 
 A new Flutter project for Thrive test challenge
 
-## Getting Started
+### Actions
+This project has a CI pipeline implemented for each push for branches master, develop and release.
 
-This project is a starting point for a Flutter application.
+The main branch is the `develop`
 
-A few resources to get you started if this is your first Flutter project:
+The APK can be found at https://github.com/tairoroberto/FuturamaThrive/actions inside the build
+`release-apk` and
+`release-appbundle` these files expire in 2 days to not oversize the CI.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This is a simple app that uses some libs to improve development.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`Retrofit` (Same way that Android request with interface)
+
+`get_it` (Dependency Injection)
+
+`sizer` (Keep the same size on many devices)
+
+###To run
+Just run `flutter pub get` and install `flutter build apk`
+
+If you have any questions or suggestions, please let me know :)
